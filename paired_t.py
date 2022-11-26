@@ -1,14 +1,14 @@
 #! /usr/bin/env python3
 """
-“Paired” means that there is a one-to-one correspondence between the values in
+'Paired' means that there is a one-to-one correspondence between the values in
 two samples. If  𝑥1,𝑥2,...,𝑥𝑛  and  𝑦1,𝑦2,...,𝑌𝑛  are two samples, then 𝑥𝑖
 corresponds to  𝑦𝑖 .
 
 Example. A sample of a product is taken from a process. Measurements are made
-of the “before” condition. The products are potentially changed in some way,
-such as a cleaning step. The “before” and “after” measurements of a
+of the 'before' condition. The products are potentially changed in some way,
+such as a cleaning step. The 'before' and 'after' measurements of a
 characteristic are made with the same device, on the same  𝑛  units. Each
-“before” measurement is paired with the corresponding “after” measurement and
+'before' measurement is paired with the corresponding 'after' measurement and
 the differences are calculated.
 
 A paired t test can be used for:
@@ -22,35 +22,31 @@ Is the average of the differences less than some hypothesized average?
 
 For t tests in general:
 
-The data in a sample follow a normal distribution mean  𝜇  and variance  𝜎2 .
-The sample variance  𝑠2  follows a  𝜒2  distribution with  𝜌  degrees of
-freedom under the null hypothesis, where  𝜌  is a positive constant.
-(𝑌⎯⎯⎯⎯−𝜇)  and the sample standard deviations  𝑠  are independent.
+- The data in a sample follow a normal distribution with mean mu and variance
+sigma squared.
+- The sample variance  s squared follows a chi-squared
+distribution with rho degrees of freedom under the null hypothesis, where rho
+is a positive constant.
+- Ybar - mu and the sample standard deviation s are independent.
 """
 
 from pathlib import Path
 import time
 
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
-import scipy.stats as stats
 import datasense as ds
 import pandas as pd
-import numpy as np
-
 
 
 def main():
-    filetypes = [("csv and feather files", ".csv .CSV .feather .FEATHER")]
-    path_in_title = "Select csv or feather file to read"
-    initialdir = Path(__file__).parent.resolve()
+    # filetypes = [("csv and feather files", ".csv .CSV .feather .FEATHER")]
+    # path_in_title = "Select csv or feather file to read"
+    # initialdir = Path(__file__).parent.resolve()
     header_title = "Paired-sample t test"
     # path_in = Path("paired_t_data.csv")
     output_url = "paired_sample_t.html"
     header_id = "paired-sample-t-test"
     hypothesized_value = 4
     significance_level = 0.05
-    colour = "#0077bb"
     decimals = 3
     width = 7
     # path_in = ds.ask_open_file_name_path(
