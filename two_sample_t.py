@@ -83,33 +83,6 @@ def main():
     # df = ds.read_file(file_name=path_in)
     # series1 = df[df.columns[0]].dropna()
     # series2 = df[df.columns[1]].dropna()
-    levels = [1, 2]
-    for level in levels:
-        if level == 1:
-            series = series1
-        else:
-            series = series2
-        parametric_statistics = ds.parametric_summary(
-            series=series,
-            decimals=decimals
-        ).to_string()
-        print(f"Parametric statistics for y level {level}")
-        print(parametric_statistics)
-        print()
-    for level in levels:
-        if level == 1:
-            series = series1
-        else:
-            series = series2
-        nonparametric_statistics = ds.nonparametric_summary(
-            series=series,
-            alphap=1/3,
-            betap=1/3,
-            decimals=decimals
-        ).to_string()
-        print(f"Non-parametric statistics for y level {level}")
-        print(nonparametric_statistics)
-        print()
     print("Scenario 1")
     print(
         "Is the average of sample one different from the average of sample "
