@@ -54,6 +54,7 @@ def main():
     #     initialdir=initialdir,
     #     filetypes=filetypes
     # )
+    # hypothesized_value = float(input("Enter the hypothesized value:"))
     start_time = time.perf_counter()
     original_stdout = ds.html_begin(
         output_url=output_url,
@@ -65,18 +66,26 @@ def main():
         action="started at"
     )
     ds.style_graph()
+    # series1 = pd.Series(
+    #     data=[
+    #         68, 76, 74, 71, 71, 72, 75, 83, 75, 74, 76, 77, 78, 75, 75, 84, 77,
+    #         69, 75, 65
+    #     ],
+    #     name="before"
+    # )
+    # series2 = pd.Series(
+    #     data=[
+    #         67, 77, 74, 74, 69, 70, 71, 77, 71, 74, 73, 68, 71, 72, 77, 80, 74,
+    #         73, 72, 62
+    #     ],
+    #     name="after"
+    # )
     series1 = pd.Series(
-        data=[
-            68, 76, 74, 71, 71, 72, 75, 83, 75, 74, 76, 77, 78, 75, 75, 84, 77,
-            69, 75, 65
-        ],
+        data=[70, 85, 92, 97, 110, 110, 126, 137, 140, 148],
         name="before"
     )
     series2 = pd.Series(
-        data=[
-            67, 77, 74, 74, 69, 70, 71, 77, 71, 74, 73, 68, 71, 72, 77, 80, 74,
-            73, 72, 62
-        ],
+        data=[94, 100, 106, 113, 130, 131, 142, 149, 156, 170],
         name="after"
     )
     # print("Data file", path_in)
