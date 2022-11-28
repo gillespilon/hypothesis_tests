@@ -46,6 +46,7 @@ def main():
     #     initialdir=initialdir,
     #     filetypes=filetypes
     # )
+    # hypothesized_value = float(input("Enter the hypothesized value:"))
     start_time = time.perf_counter()
     original_stdout = ds.html_begin(
         output_url=output_url,
