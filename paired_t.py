@@ -45,8 +45,8 @@ def main():
     # path_in = Path("paired_t_data.csv")
     output_url = "paired_sample_t.html"
     header_id = "paired-sample-t-test"
-    hypothesized_value = 4
     significance_level = 0.05
+    hypothesized_value = 4
     decimals = 3
     width = 7
     # path_in = ds.ask_open_file_name_path(
@@ -54,7 +54,7 @@ def main():
     #     initialdir=initialdir,
     #     filetypes=filetypes
     # )
-    # hypothesized_value = float(input("Enter the hypothesized value:"))
+    hypothesized_value = float(input("Enter the hypothesized value:"))
     start_time = time.perf_counter()
     original_stdout = ds.html_begin(
         output_url=output_url,
@@ -127,8 +127,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
+        hypothesized_value=hypothesized_value,
         alternative_hypothesis="two-sided",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
@@ -141,8 +142,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
+        hypothesized_value=hypothesized_value,
         alternative_hypothesis="less",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
@@ -157,8 +159,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
+        hypothesized_value=hypothesized_value,
         alternative_hypothesis="greater",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
@@ -171,9 +174,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
-        alternative_hypothesis="two-sided",
         hypothesized_value=hypothesized_value,
+        alternative_hypothesis="two-sided",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
@@ -186,9 +189,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
-        alternative_hypothesis="less",
         hypothesized_value=hypothesized_value,
+        alternative_hypothesis="less",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
@@ -201,9 +204,9 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        significance_level=significance_level,
-        alternative_hypothesis="greater",
         hypothesized_value=hypothesized_value,
+        alternative_hypothesis="greater",
+        significance_level=significance_level,
         width=width,
         decimals=decimals
     )
