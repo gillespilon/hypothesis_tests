@@ -84,9 +84,9 @@ def main():
     series_differences = series1 - series2
     # series1 = pd.Series(
     #     data=[
-    #         105, 81.4, 91.4, 84, 88.1, 91.4, 98, 90.2, 94.7, 105.5, 86.5, 83.1,
-    #         86.2, 87.7, 84.7, 83.8, 86.8, 90.2, 92.4, 85.9, 84.8, 89.3, 91.7,
-    #         87.7, 91.3, 90.7, 93.7, 90, 85, 87.9, 85.2, 87.4
+    #         105, 81.4, 91.4, 84, 88.1, 91.4, 98, 90.2, 94.7, 105.5, 86.5,
+    #         83.1, 86.2, 87.7, 84.7, 83.8, 86.8, 90.2, 92.4, 85.9, 84.8,
+    #         89.3, 91.7, 87.7, 91.3, 90.7, 93.7, 90, 85, 87.9, 85.2, 87.4
     #     ],
     #     name="before"
     # )
@@ -94,7 +94,8 @@ def main():
     #     data=[
     #         106.6, 83.3, 99.4, 94.7, 99.7, 94.1, 101.9, 98.6, 103.1, 106.2,
     #         92.3, 89.2, 93.6, 97.4, 88.8, 85.9, 96.5, 99.5, 99.8, 97, 95.3,
-    #         100.2, 96.3, 93.9, 97.4, 98.4, 101.3, 99.1, 92.8, 95.7, 93.5, 97.5
+    #         100.2, 96.3, 93.9, 97.4, 98.4, 101.3, 99.1, 92.8, 95.7, 93.5,
+    #         97.5
     #     ],
     #     name="after"
     # )
@@ -268,6 +269,47 @@ def main():
     ds.html_figure(
         file_name="histogram_series_differences.svg",
         caption="histogram_series_differences.svg"
+    )
+    fig, (ax1, ax2) = plt.subplots(
+        nrows=1,
+        ncols=2,
+        sharey=True
+    )
+    ax1.boxplot(
+        x=series1,
+        notch=True,
+        showmeans=True
+    )
+    ax2.boxplot(
+        x=series2,
+        notch=True,
+        showmeans=True
+    )
+    ax1.set_xticks(
+        ticks=[1],
+        labels=["Series one"]
+    )
+    ax2.set_xticks(
+        ticks=[1],
+        labels=["Series two"]
+    )
+    ax1.set_title(label="Series one")
+    ax2.set_title(label="Series two")
+    ax1.set_ylabel("Y (units)")
+    mid = (fig.subplotpars.right + fig.subplotpars.left) / 2
+    fig.suptitle(
+        t="Box-and-whisker plots",
+        x=mid
+    )
+    ds.despine(ax=ax1)
+    ds.despine(ax=ax2)
+    fig.savefig(
+        fname="box_and_whiskers_series_one_series_two.svg",
+        format="svg"
+    )
+    ds.html_figure(
+        file_name="box_and_whiskers_series_one_series_two.svg",
+        caption="box_and_whiskers_series_one_series_two.svg"
     )
     # if t_test_pvalue < significance_level:
     #     print('Statistically significant. The test statistic =',
