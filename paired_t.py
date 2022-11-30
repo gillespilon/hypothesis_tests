@@ -335,6 +335,18 @@ def main():
         file_name="scatter_series_two.svg",
         caption="scatter_series_two.svg"
     )
+    fig, ax = ds.plot_scatter_y(y=series_differences)
+    ax.set_title(label="Scatter plot\nSeries differences")
+    ax.set_xlabel("X (Sample order)")
+    ax.set_ylabel("Y (units)")
+    fig.savefig(
+        fname="scatter_series_differences.svg",
+        format="svg"
+    )
+    ds.html_figure(
+        file_name="scatter_series_differences.svg",
+        caption="scatter_series_differences.svg"
+    )
     # if t_test_pvalue < significance_level:
     #     print('Statistically significant. The test statistic =',
     #           t_test_statisic.round(3),
