@@ -54,7 +54,7 @@ def main():
     #     initialdir=initialdir,
     #     filetypes=filetypes
     # )
-    hypothesized_value = float(input("Enter the hypothesized value:"))
+    # hypothesized_value = float(input("Enter the hypothesized value:"))
     start_time = time.perf_counter()
     original_stdout = ds.html_begin(
         output_url=output_url,
@@ -66,28 +66,45 @@ def main():
         action="started at"
     )
     ds.style_graph()
+    series1 = pd.Series(
+        data=[
+            68, 76, 74, 71, 71, 72, 75, 83, 75, 74, 76, 77, 78, 75, 75, 84, 77,
+            69, 75, 65
+        ],
+        name="before"
+    )
+    series2 = pd.Series(
+        data=[
+            67, 77, 74, 74, 69, 70, 71, 77, 71, 74, 73, 68, 71, 72, 77, 80, 74,
+            73, 72, 62
+        ],
+        name="after"
+    )
+    series_differences = series1 - series2
     # series1 = pd.Series(
     #     data=[
-    #         68, 76, 74, 71, 71, 72, 75, 83, 75, 74, 76, 77, 78, 75, 75, 84, 77,
-    #         69, 75, 65
+    #         105, 81.4, 91.4, 84, 88.1, 91.4, 98, 90.2, 94.7, 105.5, 86.5, 83.1,
+    #         86.2, 87.7, 84.7, 83.8, 86.8, 90.2, 92.4, 85.9, 84.8, 89.3, 91.7,
+    #         87.7, 91.3, 90.7, 93.7, 90, 85, 87.9, 85.2, 87.4
     #     ],
     #     name="before"
     # )
     # series2 = pd.Series(
     #     data=[
-    #         67, 77, 74, 74, 69, 70, 71, 77, 71, 74, 73, 68, 71, 72, 77, 80, 74,
-    #         73, 72, 62
+    #         106.6, 83.3, 99.4, 94.7, 99.7, 94.1, 101.9, 98.6, 103.1, 106.2,
+    #         92.3, 89.2, 93.6, 97.4, 88.8, 85.9, 96.5, 99.5, 99.8, 97, 95.3,
+    #         100.2, 96.3, 93.9, 97.4, 98.4, 101.3, 99.1, 92.8, 95.7, 93.5, 97.5
     #     ],
     #     name="after"
     # )
-    series1 = pd.Series(
-        data=[70, 85, 92, 97, 110, 110, 126, 137, 140, 148],
-        name="before"
-    )
-    series2 = pd.Series(
-        data=[94, 100, 106, 113, 130, 131, 142, 149, 156, 170],
-        name="after"
-    )
+    # series1 = pd.Series(
+    #     data=[9.4, 10.6, 12.0, 8.7, 9.1, 7.0, 10.2, 11.3],
+    #     name="pre"
+    # )
+    # series2 = pd.Series(
+    #     data=[8.2, 7.2, 10.5, 10.3, 10.2, 8.5, 9.4, 8.7],
+    #     name="post"
+    # )
     # print("Data file", path_in)
     # print()
     # df = ds.read_file(file_name=path_in)
@@ -127,7 +144,7 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        hypothesized_value=hypothesized_value,
+        hypothesized_value=0,
         alternative_hypothesis="two-sided",
         significance_level=significance_level,
         width=width,
@@ -142,7 +159,7 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        hypothesized_value=hypothesized_value,
+        hypothesized_value=0,
         alternative_hypothesis="less",
         significance_level=significance_level,
         width=width,
@@ -159,7 +176,7 @@ def main():
     result = ds.paired_t(
         series1=series1,
         series2=series2,
-        hypothesized_value=hypothesized_value,
+        hypothesized_value=0,
         alternative_hypothesis="greater",
         significance_level=significance_level,
         width=width,
@@ -212,6 +229,18 @@ def main():
     )
     print(result)
     print()
+    fig, ax = ds.plot_histogram(series=series_differences)
+    ax.set_xlabel("Y (units)")
+    ax.set_ylabel("Count")
+    ax.set_title(label="Histogram of series differences")
+    fig.savefig(
+        fname="histogram_series_differences.svg",
+        format="svg"
+    )
+    ds.html_figure(
+        file_name="histogram_series_differences.svg",
+        caption="histogram_series_differences.svg"
+    )
     # if t_test_pvalue < significance_level:
     #     print('Statistically significant. The test statistic =',
     #           t_test_statisic.round(3),
