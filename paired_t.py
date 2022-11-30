@@ -33,6 +33,7 @@ is a positive constant.
 from pathlib import Path
 import time
 
+import matplotlib.pyplot as plt
 import datasense as ds
 import pandas as pd
 
@@ -229,6 +230,33 @@ def main():
     )
     print(result)
     print()
+    fig, (ax1, ax2) = plt.subplots(
+        nrows=2,
+        ncols=1,
+        sharex=True,
+        sharey=True
+    )
+    mid = (fig.subplotpars.right + fig.subplotpars.left) / 2
+    fig.suptitle(t="Histograms", x=mid)
+    # ax1.hist(x=series1, bins=16)
+    ax1.hist(x=series1)
+    ax1.set_title(label="Series one")
+    ax1.set_ylabel("Count")
+    # ax2.hist(x=series2, bins=16)
+    ax2.hist(x=series2)
+    ax2.set_title(label="Series two")
+    ax2.set_xlabel("Y (units)")
+    ax2.set_ylabel("Count")
+    ds.despine(ax=ax1)
+    ds.despine(ax=ax2)
+    fig.savefig(
+        fname="histograms_series_one_series_two.svg",
+        format="svg"
+    )
+    ds.html_figure(
+        file_name="histograms_series_one_series_two.svg",
+        caption="histograms_series_one_series_two.svg"
+    )
     fig, ax = ds.plot_histogram(series=series_differences)
     ax.set_xlabel("Y (units)")
     ax.set_ylabel("Count")
