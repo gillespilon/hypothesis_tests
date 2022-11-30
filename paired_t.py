@@ -347,6 +347,16 @@ def main():
         file_name="scatter_series_differences.svg",
         caption="scatter_series_differences.svg"
     )
+    fig, ax = ds.probability_plot(data=series_differences)
+    ax.set_title(label="Probability plot of series differences")
+    fig.savefig(
+        fname="probability_plot_series_differences.svg",
+        format="svg"
+    )
+    ds.html_figure(
+        file_name="probability_plot_series_differences.svg",
+        caption="probability_plot_series_differences.svg"
+    )
     # if t_test_pvalue < significance_level:
     #     print('Statistically significant. The test statistic =',
     #           t_test_statisic.round(3),
