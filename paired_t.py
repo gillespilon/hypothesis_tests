@@ -149,34 +149,23 @@ def main():
     #     data=[11.5, 3.6, 12.5, 6.3, 15.2, 8.1, 16.6, 13.1],
     #     name="regenerating"
     # )
+    # series1 = pd.Series(
+    #     data=[1902, 1470, 382, 778, 423, 568, 1375, 682],
+    #     name="males"
+    # )
+    # series2 = pd.Series(
+    #     data=[221, 633, 200, 312, 629, 435, 2098, 283],
+    #     name="females"
+    # )
+    # series1 = pd.Series(
+    #     data=[7.3, 9.6, 10.7, 10.9, 9.7, 8.5, 8.6, 8.6, 8.0, 7.2, 6.3],
+    #     name="australia"
+    # )
+    # series2 = pd.Series(
+    #     data=[6.9, 8.8, 10.1, 10.5, 9.7, 8.7, 8.2, 7.0, 6.4, 6.0, 5.5],
+    #     name="uk"
+    # )
     series_differences = series1 - series2
-    # levels = ["before", "after"]
-    # for level in levels:
-    #     if level == "before":
-    #         series = series1
-    #     else:
-    #         series = series2
-    #     parametric_statistics = ds.parametric_summary(
-    #         series=series,
-    #         decimals=decimals
-    #     ).to_string()
-    #     print(f"Parametric statistics for y level {level}")
-    #     print(parametric_statistics)
-    #     print()
-    # for level in levels:
-    #     if level == "before":
-    #         series = series1
-    #     else:
-    #         series = series2
-    #     nonparametric_statistics = ds.nonparametric_summary(
-    #         series=series,
-    #         alphap=1/3,
-    #         betap=1/3,
-    #         decimals=decimals
-    #     ).to_string()
-    #     print(f"Non-parametric statistics for y level {level}")
-    #     print(nonparametric_statistics)
-    #     print()
     print("Scenario 1")
     print("Ho: The population average of the differences equals zero.")
     print("Ha: The population average of the differences does not equal zero.")
