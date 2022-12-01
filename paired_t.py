@@ -81,7 +81,6 @@ def main():
         ],
         name="after"
     )
-    series_differences = series1 - series2
     # series1 = pd.Series(
     #     data=[
     #         105, 81.4, 91.4, 84, 88.1, 91.4, 98, 90.2, 94.7, 105.5, 86.5,
@@ -112,6 +111,45 @@ def main():
     # df = ds.read_file(file_name=path_in)
     # series1 = df[df.columns[0]].dropna()
     # series2 = df[df.columns[1]].dropna()
+    # series1 = pd.Series(
+    #     data=[
+    #         34.1, 32.3, 36.5, 38.6, 39.6, 31.8, 31.0, 38.8, 29.3, 35.3,
+    #         41.3, 43.3, 33.8, 28.3, 36.8, 30.6, 28.8, 40.4, 39.8, 44.8,
+    #         30.8, 25.8, 32.7, 35.3, 37.9
+    #     ],
+    #     name="before"
+    # )
+    # series2 = pd.Series(
+    #     data=[
+    #         47.9, 44.6, 47.3, 50.6, 51.9, 43.3, 43.3, 51.9, 41.2, 47.6,
+    #         54.0, 55.6, 45.6, 39.4, 48.9, 42.4, 46.3, 52.8, 48.9, 56.7,
+    #         46.5, 38.7, 44.2, 47.2, 51.0
+    #     ],
+    #     name="after"
+    # )
+    # series1 = pd.Series(
+    #     data=[
+    #         4.61, 6.42, 5.40, 4.54, 3.98, 3.82, 5.01, 4.34, 3.80, 4.56,
+    #         5.35, 3.89, 2.25, 4.24
+    #     ],
+    #     name="cornflakes"
+    # )
+    # series2 = pd.Series(
+    #     data=[
+    #         3.84, 5.57, 5.85, 4.80, 3.68, 2.96, 4.41, 3.72, 3.49, 3.84,
+    #         5.26, 3.73, 1.84, 4.14
+    #     ],
+    #     name="oatbran"
+    # )
+    # series1 = pd.Series(
+    #     data=[16.3, 4.8, 10.9, 14.2, 16.3, 9.9, 29.2, 22.4],
+    #     name="control"
+    # )
+    # series2 = pd.Series(
+    #     data=[11.5, 3.6, 12.5, 6.3, 15.2, 8.1, 16.6, 13.1],
+    #     name="regenerating"
+    # )
+    series_differences = series1 - series2
     # levels = ["before", "after"]
     # for level in levels:
     #     if level == "before":
