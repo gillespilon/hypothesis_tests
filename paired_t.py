@@ -109,8 +109,8 @@ def main():
     # print("Data file", path_in)
     # print()
     # df = ds.read_file(file_name=path_in)
-    # series1 = df[df.columns[0]].dropna()
-    # series2 = df[df.columns[1]].dropna()
+    # series1 = df[df.columns[0]].notna().all(axis="coluns")
+    # series2 = df[df.columns[1]].notna().all(axis="coluns")
     # series1 = pd.Series(
     #     data=[
     #         34.1, 32.3, 36.5, 38.6, 39.6, 31.8, 31.0, 38.8, 29.3, 35.3,
