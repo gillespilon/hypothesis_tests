@@ -81,8 +81,8 @@ def main():
     # print("Data file", path_in)
     # print()
     # df = ds.read_file(file_name=path_in)
-    # series1 = df[df.columns[0]].dropna()
-    # series2 = df[df.columns[1]].dropna()
+    # series1 = df[df.columns[0]].notna().all(axis="columns")
+    # series2 = df[df.columns[1]].notna().all(axis="columns")
     print("Scenario 1")
     print(
         "Is the average of sample one different from the average of sample "
