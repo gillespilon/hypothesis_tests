@@ -67,7 +67,7 @@ def main():
     # print("Data file", path_in)
     # print()
     # df = ds.read_file(file_name=path_in)
-    # series = df[df.columns[0]].dropna().all(axis="columns")
+    # series = df[df.columns[0]].notna().all(axis="columns")
     print("Scenario 1")
     print()
     ds.one_sample_t(
